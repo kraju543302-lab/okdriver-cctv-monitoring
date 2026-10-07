@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   base: '/okdriver-cctv-monitoring/',
   build: {
-    outDir: 'docs',
+    outDir: '../docs',
   },
 })
