@@ -81,7 +81,7 @@ const handleLogin = async (e) => {
   try {
 
     const response = await fetch(
-      "http://localhost:5000/api/login",
+      "http://https://okdriver-cctv-monitoring.onrender.com/api/login",
       {
         method: "POST",
         headers: {
@@ -145,7 +145,7 @@ setIsLoggedIn(true);
     const token = localStorage.getItem("adminToken");
 
     const response = await fetch(
-      "http://localhost:5000/api/cameras",
+      "http://https://okdriver-cctv-monitoring.onrender.com/api/cameras",
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -193,13 +193,13 @@ const loadAlerts = async () => {
     const token = localStorage.getItem("adminToken");
 
     const response = await fetch(
-      "http://localhost:5000/api/alerts",
-      {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      }
-    );
+  "https://okdriver-cctv-monitoring.onrender.com/api/alerts",
+  {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }
+);
 
     if (!response.ok) {
       throw new Error("Failed to load alerts");
@@ -225,14 +225,14 @@ const markAlertAsRead = async (alertId) => {
     const token = localStorage.getItem("adminToken");
 
     const response = await fetch(
-      `http://localhost:5000/api/alerts/${alertId}/read`,
-      {
-        method: "PUT",
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      }
-    );
+  `https://okdriver-cctv-monitoring.onrender.com/api/alerts/${alertId}/read`,
+  {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }
+);
 
     if (!response.ok) {
       throw new Error("Failed to mark alert as read");
@@ -286,7 +286,7 @@ const markAlertAsRead = async (alertId) => {
       const token = localStorage.getItem("adminToken");
 
 const response = await fetch(
-  "http://localhost:5000/api/cameras",
+  "https://okdriver-cctv-monitoring.onrender.com/api/cameras",
   {
     method: "POST",
 
@@ -364,19 +364,19 @@ const response = await fetch(
 
     const token = localStorage.getItem("adminToken");
 
-    const response = await fetch(
-      `http://localhost:5000/api/cameras/${editingCamera.id}`,
-      {
-        method: "PUT",
+   const response = await fetch(
+  `https://okdriver-cctv-monitoring.onrender.com/api/cameras/${editingCamera.id}`,
+  {
+    method: "PUT",
 
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`
-        },
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
+    },
 
-        body: JSON.stringify(formData)
-      }
-    );
+    body: JSON.stringify(formData)
+  }
+);
 
     const data = await response.json();
 
@@ -423,7 +423,7 @@ const response = await fetch(
     const token = localStorage.getItem("adminToken");
 
     const response = await fetch(
-      `http://localhost:5000/api/cameras/${camera.id}/disable`,
+      `https://okdriver-cctv-monitoring.onrender.com/api/cameras/${camera.id}/disable`,
       {
         method: "PUT",
         headers: {
@@ -473,7 +473,7 @@ const response = await fetch(
     const token = localStorage.getItem("adminToken");
 
     const response = await fetch(
-      `http://localhost:5000/api/cameras/${camera.id}/enable`,
+  `https://okdriver-cctv-monitoring.onrender.com/api/cameras/${camera.id}/enable`,
       {
         method: "PUT",
         headers: {
