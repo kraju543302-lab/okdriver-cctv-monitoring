@@ -791,12 +791,16 @@ const checkCameraHealth = () => {
                         `🔍 Checking ${camera.camera_id}...`
                     );
 
-                    const protocol =
-                        camera.stream_url.startsWith(
-                            "https://"
-                        )
-                            ? https
-                            : http;
+                   // RTSP streams cannot be checked using Node's HTTP/HTTPS module
+if (camera.stream_url.startsWith("rtsp://")) {
+    console.log(`⚠️ ${camera.camera_id} - RTSP stream skipped`);
+    return;
+}
+
+const protocol =
+    camera.stream_url.startsWith("https://")
+        ? https
+        : http;
 
                     const request =
                         protocol.get(
